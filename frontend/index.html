@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频转 APNG 转换器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>视频转 APNG 转换器</h1>
+
+    <div class="container">
+        <!-- 合并文件选择和设置 -->
+        <div class="setup-section card">
+            <h2>1. 选择文件与设置</h2>
+            <div class="upload-area" id="drop-area">
+                <p>将视频文件拖拽到此处，或</p>
+                <label for="video-input" class="file-input-label">点击选择文件</label>
+                <input type="file" id="video-input" multiple accept="video/*" style="display: none;">
+            </div>
+            <h3>已选文件列表:</h3>
+            <div id="file-list-controls"> <!-- Added container for list and clear button -->
+                <div id="file-list">
+                    <p><i>尚未选择文件</i></p>
+                </div>
+                <button id="clear-list-button" class="clear-button" style="display: none;">清空列表</button> <!-- Added Clear Button, initially hidden -->
+            </div>
+
+            <div class="settings-area">
+                <div class="setting fps-setting">
+                    <input type="checkbox" id="custom-fps-checkbox" class="custom-checkbox">
+                    <label for="custom-fps-checkbox">自定义帧率 (默认使用15fps)</label>
+                    <div id="fps-input-container" style="display: none;">
+                         <!-- Changed type to text, added pattern and inputmode for better numeric input -->
+                         <input type="text" id="fps-input" value="30" pattern="[0-9]*" inputmode="numeric">
+                         <label for="fps-input" class="inline-label">FPS</label>
+                    </div>
+                </div>
+                 <p class="hint">提示：效果不佳可适当增加或减少帧率（若自定义）。</p>
+            </div>
+        </div>
+
+        <div class="action-section card">
+            <h2>2. 开始转换</h2>
+            <button id="convert-button" disabled>开始转换</button>
+        </div>
+
+        <!-- 合并状态和下载 -->
+        <div class="result-section card">
+            <h2>3. 转换状态与结果</h2>
+            <div id="status-area">
+                <p><i>等待开始...</i></p>
+            </div>
+            <div id="progress-bar-container" style="display: none;">
+                <div id="progress-bar"></div>
+            </div>
+            <div id="error-details" style="display: none;">
+                <h4>失败详情:</h4>
+                <ul id="error-list"></ul>
+            </div>
+            <div id="download-area">
+                <p><i>转换完成后将在此处提供下载链接。</i></p>
+            </div>
+             <p class="hint">提示：某些平台（如百度）可能对 APNG 有尺寸（如 300x200）和大小（如 <2MB）限制，请检查输出文件是否符合要求。若不符合，可尝试调整帧率后重新转换。</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
