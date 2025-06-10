@@ -26,11 +26,6 @@
 ## 安装与设置
 
 1.  **克隆仓库**:
-    ```bash
-    git clone <your-repository-url>
-    cd web_apng_converter
-    ```
-    (将 `<your-repository-url>` 替换为您的 GitHub 仓库 URL)
 
 2.  **设置后端环境**:
     ```bash
